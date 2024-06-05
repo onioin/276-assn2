@@ -14,10 +14,10 @@ function sortTable(byCol){
             x = rows[i].getElementsByTagName("td")[byCol];
             y = rows[i+1].getElementsByTagName("td")[byCol];
 
-            if(dir === 'A' && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()){
+            if(dir === 'A' && compareRows(x, y, byCol) > 0){
                 shouldSwitch = true;
                 break;
-            }else if(dir === 'D' && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()){
+            }else if(dir === 'D' && compareRows(x, y, byCol) < 0){
                 shouldSwitch = true;
                 break;
             }
@@ -35,3 +35,10 @@ function sortTable(byCol){
     }
 }
 
+// Compares rows x and y depending on their data type
+// Returns a positive value if x > y; 0 if x == y; a negative value if x < y
+function compareRows(x, y, byCol){
+    switch(byCol){
+
+    }
+}

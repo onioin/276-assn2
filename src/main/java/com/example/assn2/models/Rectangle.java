@@ -3,6 +3,7 @@ package com.example.assn2.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name="Rectangles")
@@ -14,16 +15,25 @@ public class Rectangle{
     private String colour;
     private int width;
     private int height;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private String createdAt;
+    private String updatedAt;
+    private LocalDateTime createdAtRaw;
+    private LocalDateTime updatedAtRaw;
 
-    public Rectangle() {}
+    public Rectangle() {
+        this.createdAtRaw = LocalDateTime.now();
+        this.updatedAtRaw = createdAtRaw;
+        this.createdAt = createdAtRaw.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        this.updatedAt = updatedAtRaw.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+    }
 
     public Rectangle(String name, String colour, int width, int height) {
         this.name = name;
         this.colour = colour;
         this.width = width;
         this.height = height;
+        this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        this.updatedAt = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
     }
     public int getId() {
         return id;
@@ -58,16 +68,18 @@ public class Rectangle{
     public int getArea() {
         return width * height;
     }
-    public LocalDateTime getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
     public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+        this.createdAtRaw = createdAt;
+        this.createdAt = createdAt.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
     }
-    public LocalDateTime getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
     public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
+        this.updatedAtRaw = updatedAt;
+        this.updatedAt = updatedAt.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
     }
 }
