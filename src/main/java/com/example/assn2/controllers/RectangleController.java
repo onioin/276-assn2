@@ -43,4 +43,11 @@ public class RectangleController {
         return "redirect:/rectangles/view";
     }
 
+    @PostMapping("/rectangles/delete")
+    public String deleteRectangle(@RequestParam Map<String, String> to_remove, HttpServletResponse response) {
+        rectRepo.findById(Integer.parseInt(to_remove.get("id"))).ifPresent(rectRepo::delete);
+        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+        return "redirect:/rectangles/view";
+    }
+
 }

@@ -65,3 +65,11 @@ function compareRows(x, y, byCol){
 function rowClick(rect_id){
     location.href = "/rectangles/view/" + rect_id;
 }
+
+function drawRect(colour, width, height) {
+    console.log("hellow")
+    const canv = document.getElementById("canvas");
+    const ctx = canv.getContext("2d");
+    ctx.fillStyle = colour;
+    ctx.fillRect(20,20,width,height);
+}

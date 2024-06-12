@@ -30,7 +30,10 @@
                     <td th:text="${rect.updatedAt}"></td>
                     <td th:text="${rect.createdAt}"></td>
                     <td>
-                        <a th:href="@{/rectangles/view/{id}(id=${rect.id})}" class="btn btn-danger">Delete</a>
+                        <form action="/rectangles/delete" method="post">
+                            <input class="btn btn-danger" type="submit" value="Delete">
+                            <input type="hidden" id="id" name="id" th:value="${rect.id}">
+                        </form>
                     </td>
                 </tr>
             </tbody>
