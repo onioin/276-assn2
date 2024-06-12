@@ -9,20 +9,20 @@
 </head>
 <body>
     <div class="container">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover" id="rectTable">
             <thead class="table-primary">
                 <tr>
-                    <th onclick="sortTable(0)">Name</th>
-                    <th onclick="sortTable(1)">Colour</th>
-                    <th onclick="sortTable(2)">Width</th>
-                    <th onclick="sortTable(3)">Height</th>
-                    <th onclick="sortTable(4)">Last Updated</th>
-                    <th onclick="sortTable(5)">Created</th>
+                    <th onclick="sortTable(0)" style="cursor: pointer">Name</th>
+                    <th onclick="sortTable(1)" style="cursor: pointer">Colour</th>
+                    <th onclick="sortTable(2)" style="cursor: pointer">Width</th>
+                    <th onclick="sortTable(3)" style="cursor: pointer">Height</th>
+                    <th onclick="sortTable(4)" style="cursor: pointer">Last Updated</th>
+                    <th onclick="sortTable(5)" style="cursor: pointer">Created</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="rect : ${rects}">
+                <tr th:each="rect : ${rects}" style="cursor: pointer" th:id="${rect.id}" onclick="rowClick(this.getAttribute('id'))">
                     <td th:text="${rect.name}"></td>
                     <td th:text="${rect.colour}"></td>
                     <td th:text="${rect.width}"></td>
@@ -30,14 +30,14 @@
                     <td th:text="${rect.updatedAt}"></td>
                     <td th:text="${rect.createdAt}"></td>
                     <td>
-                        <a th:href="@{/rectangles/view/{id}(id=${rect.id})}" class="btn btn-primary">View</a>
+                        <a th:href="@{/rectangles/view/{id}(id=${rect.id})}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             </tbody>
         </table>
         <a href="/addNew.html" class="btn btn-success">Add New</a>
     </div>
+    <script src="/rect.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/static/rect.js"></script>
 </body>
 </html>
