@@ -27,7 +27,7 @@ public class RectangleController {
 
     @GetMapping("/rectangles/view/{id}")
     public String getRectangle(Model model, @PathVariable int id) {
-        model.addAttribute("rect", rectRepo.findById(id));
+        model.addAttribute("rect", rectRepo.findById(id).get());
 
         return "viewRectangle";
     }

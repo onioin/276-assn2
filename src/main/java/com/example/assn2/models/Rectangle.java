@@ -23,8 +23,8 @@ public class Rectangle{
     public Rectangle() {
         this.createdAtRaw = LocalDateTime.now();
         this.updatedAtRaw = createdAtRaw;
-        this.createdAt = createdAtRaw.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-        this.updatedAt = updatedAtRaw.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        this.createdAt = createdAtRaw.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.updatedAt = updatedAtRaw.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
     public Rectangle(String name, String colour, int width, int height) {
@@ -32,8 +32,8 @@ public class Rectangle{
         this.colour = colour;
         this.width = width;
         this.height = height;
-        this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-        this.updatedAt = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.updatedAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
     public int getId() {
         return id;
@@ -73,13 +73,13 @@ public class Rectangle{
     }
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAtRaw = createdAt;
-        this.createdAt = createdAt.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        this.createdAt = createdAt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
     public String getUpdatedAt() {
         return updatedAt;
     }
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAtRaw = updatedAt;
-        this.updatedAt = updatedAt.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        this.updatedAt = updatedAt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 }
