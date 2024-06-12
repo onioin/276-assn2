@@ -42,26 +42,20 @@ function compareRows(x, y, byCol){
     let d1, d2;
     switch(byCol){
         case 0:
-            console.log(x, y, "str");
             return x.innerHTML.localeCompare(y.innerHTML);
         case 1:
-            console.log(x, y, "str");
             return x.innerHTML.localeCompare(y.innerHTML);
         case 2:
-            console.log(x, y, "int");
             return (+x.innerHTML) - (+y.innerHTML);
         case 3:
-            console.log(x, y, "int");
             return (+x.innerHTML) - (+y.innerHTML);
         case 4:
             d1 = new Date(x.innerHTML);
             d2 = new Date(y.innerHTML);
-            console.log(d1, d2, "date");
             return d1 - d2;
         case 5:
             d1 = new Date(x.innerHTML);
             d2 = new Date(y.innerHTML);
-            console.log(x, y, "date");
             return d1 - d2;
         default:
             break;
