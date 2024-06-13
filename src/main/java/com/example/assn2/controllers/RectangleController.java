@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class RectangleController {
@@ -48,6 +49,18 @@ public class RectangleController {
         rectRepo.findById(Integer.parseInt(to_remove.get("id"))).ifPresent(rectRepo::delete);
         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
         return "redirect:/rectangles/view";
+    }
+
+    @PostMapping("/rectangles/update")
+    public String updateRectangle(@RequestParam Map<String, String> new_data, HttpServletResponse response) {
+        Rectangle to_update = rectRepo.findById(Integer.parseInt(new_data.get("id"))).get();
+        to_update.setName(new_data.get("name"));
+        to_update.setColour(new_data.get("colour"));
+        to_update.setWidth(Integer.parseInt(new_data.get("width")));
+        to_update.setHeight(Integer.parseInt(new_data.get("height")));
+        rectRepo.save(to_update);
+        response.setStatus(HttpServletResponse.SC_ACCEPTED);
+        return "redirect:/rectangles/view/"+to_update.getId();
     }
 
 }

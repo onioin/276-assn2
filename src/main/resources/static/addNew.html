@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="background: #a6192e url('/textured-red-01-small.png') repeat top left">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <form action="/rectangles/add" method="post">
                     <input type="text" id="name" name="name" class="form-control" placeholder="Name">
-                    <input type="color" id="colour" name="colour" class="form-control">
+                    <input type="color" id="colour" name="colour" class="form-control form-control-color">
                     <input type="number" id="width" name="width" class="form-control" placeholder="width">
                     <input type="number" id="height" name="height" class="form-control" placeholder="height">
                     <input class="btn btn-primary" type="submit" value="Add">
