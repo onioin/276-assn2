@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 @Entity
 @Table(name="Rectangles")
@@ -45,28 +46,37 @@ public class Rectangle{
         return name;
     }
     public void setName(String name) {
+        if(!Objects.equals(name, this.name)){
+            this.setUpdatedAt(LocalDateTime.now());
+        }
         this.name = name;
     }
     public String getColour() {
         return colour;
     }
     public void setColour(String colour) {
+        if(!Objects.equals(colour, this.colour)){
+            this.setUpdatedAt(LocalDateTime.now());
+        }
         this.colour = colour;
     }
     public int getWidth() {
         return width;
     }
     public void setWidth(int width) {
+        if(width != this.width){
+            this.setUpdatedAt(LocalDateTime.now());
+        }
         this.width = width;
     }
     public int getHeight() {
         return height;
     }
     public void setHeight(int height) {
+        if(height != this.height){
+            this.setUpdatedAt(LocalDateTime.now());
+        }
         this.height = height;
-    }
-    public int getArea() {
-        return width * height;
     }
     public String getCreatedAt() {
         return createdAt;
