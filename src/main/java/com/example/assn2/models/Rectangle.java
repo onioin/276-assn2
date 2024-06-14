@@ -33,8 +33,10 @@ public class Rectangle{
         this.colour = colour;
         this.width = width;
         this.height = height;
-        this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        this.updatedAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.createdAtRaw = LocalDateTime.now();
+        this.updatedAtRaw = createdAtRaw;
+        this.createdAt = createdAtRaw.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.updatedAt = updatedAtRaw.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
     public int getId() {
         return id;
