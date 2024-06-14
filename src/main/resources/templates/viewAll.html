@@ -16,8 +16,9 @@
 </nav>
 <body style="background: #a6192e url('/textured-red-01-small.png') repeat top left">
     <div class="container">
-        <table class="table table-striped table-hover table-responsive-sm mt-3" id="rectTable">
-            <thead class="table-primary">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover mt-3" id="rectTable">
+                <thead class="table-primary">
                 <tr>
                     <th onclick="sortTable(0)" style="cursor: pointer">Name</th>
                     <th onclick="sortTable(1)" style="cursor: pointer">Colour</th>
@@ -27,8 +28,8 @@
                     <th onclick="sortTable(5)" style="cursor: pointer">Created</th>
                     <th></th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr th:each="rect : ${rects}" style="cursor: pointer" th:id="${rect.id}" onclick="rowClick(this.getAttribute('id'))">
                     <td th:text="${rect.name}"></td>
                     <td th:text="${rect.colour}"></td>
@@ -43,8 +44,9 @@
                         </form>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
         <a href="/addNew.html" class="btn btn-success">Add New</a>
     </div>
     <script src="/rect.js"></script>
