@@ -34,6 +34,22 @@ function sortTable(byCol){
             }
         }
     }
+    drawArrow(byCol, dir);
+}
+
+function drawArrow(col, dir) {
+    const table = document.getElementById("rectTable");
+    let new_sort = table.rows[0].getElementsByTagName("th")[col];
+    let old_sort = document.getElementById("sort");
+    old_sort.innerHTML = old_sort.innerHTML.slice(0, -1);
+    old_sort.id = null
+    if(dir === 'A'){
+        new_sort.innerHTML = new_sort.innerHTML + "&#8963;"
+        new_sort.id = "sort"
+    }else if(dir === 'D'){
+        new_sort.innerHTML = new_sort.innerHTML + "&#8964;"
+        new_sort.id = "sort"
+    }
 }
 
 // Compares rows x and y depending on their data type
@@ -64,12 +80,4 @@ function compareRows(x, y, byCol){
 
 function rowClick(rect_id){
     location.href = "/rectangles/view/" + rect_id;
-}
-
-function drawRect(colour, width, height) {
-    console.log("hellow")
-    const canv = document.getElementById("canvas");
-    const ctx = canv.getContext("2d");
-    ctx.fillStyle = colour;
-    ctx.fillRect(20,20,width,height);
 }
