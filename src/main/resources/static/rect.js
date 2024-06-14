@@ -42,7 +42,7 @@ function drawArrow(col, dir) {
     let new_sort = table.rows[0].getElementsByTagName("th")[col];
     let old_sort = document.getElementById("sort");
     old_sort.innerHTML = old_sort.innerHTML.slice(0, -2);
-    old_sort.id = null
+    old_sort.removeAttribute("id");
     if(dir === 'A'){
         new_sort.innerHTML = new_sort.innerHTML + " &#8963;"
         new_sort.id = "sort"
